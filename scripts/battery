@@ -1,0 +1,11 @@
+#!/bin/bash
+for battery in /sys/class/power_supply/BAT?; do
+    BAT_CAPACITY=$(cat "$battery"/capacity)
+    BAT_STATUS=$(cat "$battery"/status)
+    printf "$BAT_CAPACITY%%\n"
+
+    if [ "$BAT_CAPACITY" -le 10 ] && [ "$BAT_STATUS" = "Discharging" ]; then
+        notify-send --hint string:x-dunst-stack-tag:battery --urgency critical \
+            --icon dialog-warning-symbolic.symbolic "Battery is low!"
+    fi
+done
