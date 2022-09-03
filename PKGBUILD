@@ -1,6 +1,6 @@
 pkgname=dwmblocks
 pkgver=68.a933ce0
-pkgrel=4
+pkgrel=5
 pkgdesc="Modular status bar for dwm written in c"
 url="https://github.com/torrinfail/dwmblocks"
 arch=('i686' 'x86_64')
@@ -10,7 +10,7 @@ depends=('libx11')
 source=("$pkgname::git+https://github.com/torrinfail/dwmblocks.git"
 	blocks.h)
 sha256sums=('SKIP'
-            '16aca58c768a3becb4a926415639814715c0881a98ecf064ac906a7fde13e138')
+            '0999b124e0400bafb4b5b67947b351ad616d5a6a91d2ff5dea81f597a2bf79e3')
 pkgver() {
   cd "$srcdir/$pkgname"
   printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"

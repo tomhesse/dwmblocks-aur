@@ -1,0 +1,3 @@
+#!/bin/bash
+WIFI_STATUS=$(cat /sys/class/net/wlan0/operstate)
+echo "${WIFI_STATUS^}"
